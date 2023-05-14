@@ -19,7 +19,6 @@ int main()
 	int status;
 	char *args[21];
 	int i = 0;
-	int j;
 	char *token;
 	pid_t pid;
 
@@ -57,10 +56,6 @@ int main()
 		}
 		else if (pid == 0)
 		{
-			for (j = 1; j < i; j++)
-			{
-				printf("Arg: %d: %s\n", j, args[j]);
-			}
 			execve(av[0], av, envp);
 			perror("execve");
 			exit(1);

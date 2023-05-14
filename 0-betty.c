@@ -1,10 +1,10 @@
 #include <stdio.h>
 /**
- * main - Entry point
+ * _putchar - Entry point
  * Return: 0
  */
-int main(void)
+int _putchar(void)
 {
 	printf("Hello world");
-	Return(0);
+	return (0);
 }

@@ -9,7 +9,7 @@
  * shell_1 - displays prompts and handles errors
  * Return: 0
  */
-int shell_1(void)
+int main(void)
 {
 	char **envp = malloc(sizeof(char *) * (env_count + 1));
 

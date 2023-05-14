@@ -13,10 +13,14 @@ int main()
 {
 	char *line = NULL;
 	size_t size = 0;
-	char *av[2] = {NULL, NULL};
+	char *av[3] = {NULL, NULL, NULL};
 	int env_count = 0;
 	char **envp = malloc(sizeof(char*) * (env_count + 1));
 	int status;
+	char *args[21];
+	int i = 0;
+	int j;
+	char *token;
 	pid_t pid;
 
 	while (1)
@@ -27,12 +31,24 @@ int main()
 			printf("\n");
 			break;
 		}
+		token = strtok(line, " ");
+		i = 0;
+		while (token)
+		{
+			args[i++] = token;
+			token = strtok(NULL, " ");
+		}
+		args[i] = NULL;
 
 		if (line[strlen(line) - 1] == '\n')
 		{
 			line[strlen(line) - 1] = '\0';
 		}
 		av[0] = line;
+		if (i > 0)
+		{
+			av[1] = args[1];
+		}
 		pid = fork();
 
 		if (pid == -1)
@@ -41,6 +57,10 @@ int main()
 		}
 		else if (pid == 0)
 		{
+			for (j = 1; j < i; j++)
+			{
+				printf("Arg: %d: %s\n", j, args[j]);
+			}
 			execve(av[0], av, envp);
 			perror("execve");
 			exit(1);

@@ -19,7 +19,8 @@ int main(void)
 
 	while (1)
 	{
-		printf("#cisfun$ ");
+		if (isatty(STDIN_FILENO))
+			printf("#cisfun$ ");
 		if (error() == -1)
 		{
 			break;

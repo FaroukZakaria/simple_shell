@@ -12,9 +12,8 @@ int main(void)
 {
 	pid_t pid;
 	int status;
-	char *line = NULL;
+	char *args[2], *line = NULL;
 	size_t l_size = 0;
-	char *args[2];
 	ssize_t read;
 
 	while (1)

@@ -28,13 +28,14 @@ int main(void)
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
+		token();
 		pid = fork();
 		if (pid == -1)
 			perror("fork");
 		else if (pid == 0)
 		{
 			execve(av[0], av, envp);
-			perror("./shell");
+			perror(av[0]);
 			exit(1);
 		}
 		else

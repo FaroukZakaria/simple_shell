@@ -10,6 +10,7 @@
 
 char *get_input(void);
 size_t _strlen(const char *str);
+void token(void);
 char **split_input(char *input);
 int execute_command(char **arguments);
 char *av[3];

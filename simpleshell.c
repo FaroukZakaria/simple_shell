@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <readline/readline.h>
-#include <readline/history.h>
 /**
  * main - main func
  * Return: 0 or 1
@@ -14,12 +12,14 @@ int main(void)
 	pid_t pid;
 	int status;
 	char *input;
+	char *line = NULL;
+	size_t l_size = 0;
 
 	while (1)
 	{
 	{
-		input = readline("#cisfun$ ");
-		if (strcmp(input, "exit") == 0 || strcmp(input, "quit") == 0)
+		printf("$ ");
+		getline(&line, &l_size, stdin);
 		break;
 	}
 	pid = fork();

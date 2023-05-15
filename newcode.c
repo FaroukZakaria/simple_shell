@@ -20,9 +20,8 @@ int main(void)
 	while (1)
 	{
 		printf("#cisfun$ ");
-		if (getline(&line, &size, stdin) == -1)
+		if (error() == -1)
 		{
-			printf("\n");
 			break;
 		}
 		if (line[_strlen(line) - 1] == '\n')

@@ -34,7 +34,7 @@ int main(void)
 		else if (pid == 0)
 		{
 			execve(av[0], av, envp);
-			perror("./shell:");
+			perror("./shell");
 			exit(1);
 		}
 		else

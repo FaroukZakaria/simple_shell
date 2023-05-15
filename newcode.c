@@ -25,18 +25,16 @@ int main(void)
 			printf("\n");
 			break;
 		}
-
 		if (line[strlen(line) - 1] == '\n')
 			line[strlen(line) - 1] = '\0';
 		av[0] = line;
 		pid = fork();
-
 		if (pid == -1)
 			perror("fork");
 		else if (pid == 0)
 		{
 			execve(av[0], av, envp);
-			perror("execve");
+			perror("./shell:");
 			exit(1);
 		}
 		else

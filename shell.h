@@ -12,6 +12,7 @@ char *get_input(void);
 size_t _strlen(const char *str);
 void token(void);
 int error(void);
+int esc(void);
 void last_line(void);
 char **split_input(char *input);
 int execute_command(char **arguments);

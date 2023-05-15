@@ -18,7 +18,7 @@ int main(void)
 	while (1)
 	{
 	{
-		input = readline("Enter command or  'exit' to quit\n> ");
+		input = readline("#cisfun$ ");
 		if (strcmp(input, "exit") == 0 || strcmp(input, "quit") == 0)
 		break;
 	}

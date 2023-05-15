@@ -6,7 +6,7 @@
 #include <errno.h>
 #include "shell.h"
 /**
- * shell_1 - displays prompts and handles errors
+ * main - displays prompts and handles errors
  * Return: 0
  */
 int main(void)
@@ -25,8 +25,8 @@ int main(void)
 			printf("\n");
 			break;
 		}
-		if (line[strlen(line) - 1] == '\n')
-			line[strlen(line) - 1] = '\0';
+		if (line[_strlen(line) - 1] == '\n')
+			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
 		pid = fork();
 		if (pid == -1)

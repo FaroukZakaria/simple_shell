@@ -16,12 +16,12 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			printf("#cisfun$ ");
 		if (error() == -1)
-		{
 			break;
-		}
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
+		if (_strcmp(av[0], "exit") == 0)
+			break;
 		token();
 		pid = fork();
 		if (pid == -1)
@@ -33,9 +33,7 @@ int main(void)
 			exit(1);
 		}
 		else
-		{
 			waitpid(pid, &status, 0);
-		}
 	}
 	free(line);
 	return (0);

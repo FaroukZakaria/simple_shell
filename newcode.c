@@ -19,18 +19,7 @@ int main(void)
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
-		if (_strcmp(av[0], "exit") == 0)
-		{
-			if (av[1] != NULL)
-			{
-				status = _atoi(av[1]);
-				exit(status);
-			}
-			else
-			{
-				exit(0);
-			}
-		}
+		__exit();
 		token();
 		pid = fork();
 		if (pid == -1)

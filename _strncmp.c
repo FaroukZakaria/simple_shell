@@ -4,7 +4,7 @@
  * @s1: s
  * @s2: s
  * @n: s
- * return: 0
+ * Return: 0
  */
 int _strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -22,4 +22,4 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 		}
 	}
 	return (0);
-}		
+}

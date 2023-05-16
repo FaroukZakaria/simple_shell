@@ -1,18 +1,22 @@
 #include "shell.h"
 /**
- * handle - handle path
+ * path - s
  * Return: s
  */
-void handle(void)
+char **path(void)
 {
-	int path_c = 0;
-	char *path = getenv("PATH");
-	char *path_token = strtok(path, ":");
-	char *paths[64];
+	char *path = _getenv("PATH");
+	char *path_dirs[256];
+	int i = 0;
+	char *dir = strtok(path, ":");
+	char **path_dirs_copy = malloc(sizeof(path_dirs));
 
-	while (path_token != NULL)
+	while (dir != NULL)
 	{
-		paths[path_c++] = path_token;
-		path_token = strtok(NULL, ":");
+		path_dirs[i++] = dir;
+		dir = strtok(NULL, ":");
 	}
+	path_dirs[i] = NULL;
+	_memcpy(path_dirs_copy, path_dirs, sizeof(path_dirs));
+	return (path_dirs_copy);
 }

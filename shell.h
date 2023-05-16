@@ -22,6 +22,7 @@ void _strcpy(char *dest, const char *src);
 int _strcmp(const char *s1, const char *s2);
 extern char **environ;
 int _atoi(const char *str);
+void __exit(void);
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *_getenv(const char *name);
 char **path(void);

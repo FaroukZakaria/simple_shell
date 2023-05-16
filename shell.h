@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <errno.h>
 
 char *get_input(void);
 size_t _strlen(const char *str);

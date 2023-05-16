@@ -14,7 +14,7 @@ int main(void)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("#cisfun$ ");
+			write(1, ("#cisfun$ "), 9);
 		if (error() == -1)
 			break;
 		if (line[_strlen(line) - 1] == '\n')

@@ -5,11 +5,10 @@
  */
 int main(void)
 {
-	char **envp = malloc(sizeof(char *) * (env_count + 1));
+	int status;
 
 	line = NULL;
 	size = 0;
-	env_count = 0;
 
 	while (1)
 	{
@@ -21,14 +20,26 @@ int main(void)
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
 		if (_strcmp(av[0], "exit") == 0)
-			break;
+		{
+			if (av[1] != NULL)
+			{
+				status = _atoi(av[1]);
+				exit(status);
+			}
+			else
+			{
+				exit(0);
+			}
+		}
 		token();
 		pid = fork();
 		if (pid == -1)
 			perror("fork");
 		else if (pid == 0)
 		{
-			execve(av[0], av, envp);
+			if (_strcmp(av[0], "env") == 0)
+				execve("/bin/env", av, environ);
+			(execve(av[0], av, environ));
 			perror(av[0]);
 			exit(1);
 		}

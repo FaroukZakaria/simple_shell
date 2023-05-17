@@ -28,7 +28,7 @@ int main(void)
 		{
 			if (_strcmp(av[0], "env") == 0)
 				execve("/bin/env", av, environ);
-			(execve(av[0], av, environ));
+			(execve(_bin(av[0]), av, environ));
 			perror(av[0]);
 			exit(1);
 		}

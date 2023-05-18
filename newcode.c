@@ -26,8 +26,6 @@ int main(void)
 				perror("fork");
 			else if (pid == 0)
 			{
-				if (_strcmp(av[0], "env") == 0)
-					execve("/bin/env", av, environ);
 				(execve(_bin(av[0]), av, environ));
 				perror(av[0]);
 				exit(1);

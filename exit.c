@@ -3,18 +3,24 @@
  * __exit - s
  * Return: s
  */
-void __exit(void)
+int __exit(void)
 {
+	int stats;
+
 	if (_strcmp(av[0], "exit") == 0)
 	{
 		if (av[1] != NULL)
 		{
-			status = _atoi(av[1]);
-			exit(status);
+			stats = _atoi(av[1]);
+			printf("status: %d\n", stats);
+			exit(stats);
+			return (stats);
 		}
 		else
 		{
 			exit(0);
+			return (0);
 		}
 	}
+	return (-1);
 }

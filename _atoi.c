@@ -4,7 +4,7 @@
  * @str: s
  * Return: s
  */
-int _atoi(const char *str)
+int _atoi(char *str)
 {
 	int result = 0;
 	int sign = 1;

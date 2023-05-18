@@ -17,22 +17,21 @@ int main(void)
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
-		__exit();
 		token();
-		if (access(_bin(av[0]), X_OK) == 0)
+		if (__exit())
+			exit(__exit());
+		pid = fork();
+		if (pid == -1)
+			perror("fork");
+		else if (pid == 0)
 		{
-			pid = fork();
-			if (pid == -1)
-				perror("fork");
-			else if (pid == 0)
-			{
-				(execve(_bin(av[0]), av, environ));
-				perror(av[0]);
-				exit(1);
-			}
-			else
-				waitpid(pid, &status, 0);
+			_cd();
+			(execve(_bin(av[0]), av, environ));
+			perror(av[0]);
+			exit(1);
 		}
+		else
+			waitpid(pid, &status, 0);
 	}
 	free(line);
 	return (0);

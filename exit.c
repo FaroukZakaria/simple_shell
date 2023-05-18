@@ -12,12 +12,10 @@ int __exit(void)
 		if (av[1] != NULL)
 		{
 			stats = _atoi(av[1]);
-			exit(stats);
 			return (stats);
 		}
 		else
 		{
-			exit(0);
 			return (0);
 		}
 	}

@@ -18,7 +18,7 @@ int main(void)
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
 		token();
-		if (__exit())
+		if (_strcmp(av[0], "exit") == 0)
 			exit(__exit());
 		pid = fork();
 		if (pid == -1)

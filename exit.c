@@ -12,7 +12,6 @@ int __exit(void)
 		if (av[1] != NULL)
 		{
 			stats = _atoi(av[1]);
-			printf("status: %d\n", stats);
 			exit(stats);
 			return (stats);
 		}

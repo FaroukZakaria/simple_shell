@@ -9,7 +9,7 @@ char *_cd(void)
 	{
 		if (_strcmp(av[0], "cd") == 0 && _strcmp(av[1], "-") == 0)
 		{
-			return("/home");
+			return ("/home");
 		}
 		if (_strcmp(av[0], "cd") == 0 && av[1] != NULL && av[2] != NULL)
 		{
@@ -19,7 +19,7 @@ char *_cd(void)
 	}
 	else if (_strcmp(av[0], "cd") == 0 && av[1] == NULL)
 	{
-		return("/home");
+		return ("/home");
 	}
 	return ("/home");
 }

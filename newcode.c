@@ -20,13 +20,18 @@ int main(void)
 		token();
 		if (_strcmp(av[0], "exit") == 0)
 			exit(__exit());
+		if (_strcmp(av[0], "cd") == 0)
+		{
+			if (opendir(_cd()) != 0)
+				chdir(_cd());
+		}
 		pid = fork();
 		if (pid == -1)
 			perror("fork");
 		else if (pid == 0)
 		{
-			_cd();
-			(execve(_bin(av[0]), av, environ));
+			if (_strcmp(av[0], "cd") != 0)
+				(execve(_bin(av[0]), av, environ));
 			perror(av[0]);
 			exit(1);
 		}

@@ -3,22 +3,23 @@
  * _cd - changes directory
  * Return: s
  */
-void _cd(void)
+char *_cd(void)
 {
-	char *cwd = getcwd(NULL, 0);
-
 	if (_strcmp(av[0], "cd") == 0 && av[1] != NULL)
 	{
-		chdir(av[1]);
-		if (chdir(av[1]) != 0)
+		if (_strcmp(av[0], "cd") == 0 && _strcmp(av[1], "-") == 0)
 		{
-			perror("cd");
-			exit(1);
+			return("/home");
 		}
-		free(cwd);
+		if (_strcmp(av[0], "cd") == 0 && av[1] != NULL && av[2] != NULL)
+		{
+			perror("cd: too many arguments");
+		}
+		return (av[1]);
 	}
 	else if (_strcmp(av[0], "cd") == 0 && av[1] == NULL)
 	{
-		chdir("/home");
+		return("/home");
 	}
+	return ("/home");
 }

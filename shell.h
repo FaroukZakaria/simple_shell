@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <errno.h>
+#include <dirent.h>
 
 char *get_input(void);
 size_t _strlen(const char *str);
@@ -24,7 +25,7 @@ extern char **environ;
 int _atoi(char *str);
 int __exit(void);
 char *_bin(char *str);
-void _cd(void);
+char *_cd(void);
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *_getenv(const char *name);
 char **path(void);

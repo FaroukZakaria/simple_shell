@@ -6,12 +6,12 @@
 void token(void)
 {
 	int i = 0;
-	char *token = strtok(line, " ");
+	char *token = _strtok(line, " ");
 
 	while (token)
 	{
 		av[i++] = token;
-		token = strtok(NULL, " ");
+		token = _strtok(NULL, " ");
 	}
 	av[i] = NULL;
 }

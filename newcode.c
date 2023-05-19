@@ -5,6 +5,7 @@
  */
 int main(void)
 {
+	/*char **name, **value;*/
 	line = NULL;
 	size = 0;
 

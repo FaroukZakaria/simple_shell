@@ -1,24 +1,33 @@
 #include "shell.h"
 /**
- * sep - separates commands
- * Return: void
+ * sep - s
+ * @str: s
+ * Return: s
  */
-void *sep(void)
+void sep(char *str[])
 {
-	char comm[] = {NULL};
-	int i, j = 0;
+	int i = 0, j = 0, k = 0;
+	char **str2 = NULL;
 
-	for (i = 0; av[i] != NULL; i++)
+	while (str[i] != NULL)
 	{
-		if (_strcmp(av[i], ";") == 0)
+		if (_strcmp(str[i], ";") == 0)
 		{
-
-			execve(comm[0], comm, environ);
+			i++;
+			j = 0;
+			k = 0;
+			while (str2[k] != NULL)
+			{
+				printf("%s\n", str2[k]);
+			}
+			execve(_bin(str2[0]), str2, environ);
+			str2 = NULL;
 		}
 		else
 		{
-			comm[j] = av[i];
+			str2[j] = str[i];
 			j++;
+			i++;
 		}
 	}
 }

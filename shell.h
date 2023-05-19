@@ -26,6 +26,8 @@ int _atoi(char *str);
 int __exit(void);
 char *_bin(char *str);
 char *_cd(void);
+void sep(char *str[]);
+void do_al(const char *string[], char **name, char **value);
 int _strncmp(const char *s1, const char *s2, size_t n);
 char *_getenv(const char *name);
 char **path(void);

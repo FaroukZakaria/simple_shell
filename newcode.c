@@ -5,8 +5,6 @@
  */
 int main(void)
 {
-	char *keys[10], *values[10];
-
 	line = NULL;
 	size = 0;
 	while (1)
@@ -31,9 +29,11 @@ int main(void)
 			perror("fork");
 		else if (pid == 0)
 		{
-			do_al(av, keys, values);
 			if (_strcmp(av[0], "cd") != 0)
+			{
+				sep(av, environ);
 				(execve(_bin(av[0]), av, environ));
+			}
 			perror(av[0]);
 			exit(1);
 		}

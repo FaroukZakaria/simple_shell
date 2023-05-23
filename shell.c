@@ -33,7 +33,6 @@ int main(void)
 		{
 			if (_strcmp(av[0], "cd") != 0)
 			{
-				/*sep(av, environ);*/
 				(execve(_bin(av[0]), av, environ));
 			}
 			perror(av[0]);

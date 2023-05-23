@@ -68,8 +68,7 @@ int _pid_get(char **envir)
 		{
 			if (envir[i][1] == '$')
 			{
-				/*envir[i] = _btoi(getpid());*/
-				return (getpid());
+				envir[i] = _btoi(getpid());
 			}
 		}
 	}

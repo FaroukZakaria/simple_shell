@@ -9,6 +9,7 @@ void sep(char **str, char **_environ)
 	int i = 0, j = 0, k = 0, l = 0, m = 0;
 	char **str2, **str3;
 	pid_t pid;
+	int status;
 
 	while (str[i] != NULL)
 	{
@@ -20,7 +21,7 @@ void sep(char **str, char **_environ)
 		return;
 	while (l < k)
 	{
-		/*printf("current value of l is: %d\n", l);*/
+		printf("current value of l is: %d\n", l);
 		/*printf("value of i is: %d\n", i);*/
 		str2 = malloc(sizeof(char *) * i);
 		for (j = 0; _strcmp(str[j], ";") != 0; j++)
@@ -48,6 +49,7 @@ void sep(char **str, char **_environ)
 		pid = fork();
 		if (pid == 0)
 		{
+			sleep(1);
 			printf("GONNA EXECUTE NOW!!!\n");
 			execve(_bin(str2[0]), str2, _environ);
 			perror("STUPID");
@@ -59,6 +61,7 @@ void sep(char **str, char **_environ)
 		{
 			waitpid(pid, &status, 0);
 			printf("does this even execute?");
+			printf("\n what about this?");
 		}
 	}
 	free(str2);

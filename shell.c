@@ -3,7 +3,7 @@
  * main - displays prompts and handles errors
  * Return: 0
  */
-int main(int argc, char *arrv[])
+int main(void)
 {
 	line = NULL;
 	size = 0;
@@ -11,11 +11,6 @@ int main(int argc, char *arrv[])
 	{
 		if (isatty(STDIN_FILENO))
 			write(1, ("#cisfun$ "), 9);
-		if (!(isatty(STDIN_FILENO)) && argc >= 2)
-		{
-			write(STDERR_FILENO, arrv[2], _strlen(arrv[2]));
-			write(STDERR_FILENO, " 1: ", _strlen(" 1: "));
-		}
 		if (error() == -1)
 			break;
 		if (line[_strlen(line) - 1] == '\n')

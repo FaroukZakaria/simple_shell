@@ -12,7 +12,10 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			write(1, ("#cisfun$ "), 9);
 		if (error() == -1)
-			break;
+		{
+			free(line);
+			exit(-1);
+		}
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
@@ -44,6 +47,8 @@ int main(void)
 		else
 			waitpid(pid, &status, 0);
 	}
+	free(av[0]);
+	free(av[1]);
 	free(line);
 	return (0);
 }

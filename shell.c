@@ -13,7 +13,7 @@ int main(void)
 			write(1, ("#cisfun$ "), 9);
 		if (error() == -1)
 		{
-			exit(-1);
+			break;
 		}
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';

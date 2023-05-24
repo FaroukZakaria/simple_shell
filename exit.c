@@ -12,6 +12,8 @@ int __exit(void)
 		if (av[1] != NULL)
 		{
 			stats = _atoi(av[1]);
+			free(av[0]);
+			free(av[1]);
 			return (stats);
 		}
 		else

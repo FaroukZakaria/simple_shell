@@ -12,18 +12,13 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			write(1, ("#cisfun$ "), 9);
 		if (error() == -1)
-		{
 			break;
-		}
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
 		token();
 		if (_strcmp(av[0], "exit") == 0)
-		{
-			free(line);
-			exit(0);
-		}
+			break;
 		if (_strcmp(av[0], "cd") == 0)
 		{
 			if (opendir(_cd()) != 0)

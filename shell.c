@@ -18,7 +18,7 @@ int main(void)
 		av[0] = line;
 		token();
 		if (_strcmp(av[0], "exit") == 0)
-			exit(__exit());
+			exit(0);
 		if (_strcmp(av[0], "cd") == 0)
 		{
 			if (opendir(_cd()) != 0)

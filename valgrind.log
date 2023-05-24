@@ -1,0 +1,163 @@
+==27601== Memcheck, a memory error detector
+==27601== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==27601== Using Valgrind-3.20.0-5147d671e4-20221024 and LibVEX; rerun with -h for copyright info
+==27601== Command: ./hsh
+==27601== Parent PID: 14598
+==27601== 
+--27601-- 
+--27601-- Valgrind options:
+--27601--    --leak-check=full
+--27601--    --show-leak-kinds=all
+--27601--    --track-origins=yes
+--27601--    --verbose
+--27601--    --log-file=valgrind.log
+--27601-- Contents of /proc/version:
+--27601--   Linux version 5.4.0-149-generic (buildd@lcy02-amd64-041) (gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1)) #166-Ubuntu SMP Tue Apr 18 16:51:45 UTC 2023
+--27601-- 
+--27601-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-rdrand-rdseed
+--27601-- Page sizes: currently 4096, max supported 4096
+--27601-- Valgrind library directory: /snap/valgrind/142/usr/libexec/valgrind
+--27601-- Reading syms from /home/vagrant/simple_shell/hsh
+--27601-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
+--27601--   Considering /usr/lib/debug/.build-id/45/87364908de169dec62ffa538170118c1c3a078.debug ..
+--27601--   .. build-id is valid
+--27601-- Reading syms from /snap/valgrind/142/usr/libexec/valgrind/memcheck-amd64-linux
+--27601--    object doesn't have a dynamic symbol table
+--27601-- Warning: inlined fn name without absori
+--27601-- is shown as UnknownInlinedFun
+--27601-- Scheduler: using generic scheduler lock implementation.
+--27601-- Reading suppressions file: /snap/valgrind/142/usr/libexec/valgrind/default.supp
+==27601== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-27601-by-vagrant-on-???
+==27601== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-27601-by-vagrant-on-???
+==27601== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-27601-by-vagrant-on-???
+==27601== 
+==27601== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==27601== don't want to do, unless you know exactly what you're doing,
+==27601== or are doing some strange experiment):
+==27601==   /snap/valgrind/142/usr/libexec/valgrind/../../bin/vgdb --pid=27601 ...command...
+==27601== 
+==27601== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==27601==   /path/to/gdb ./hsh
+==27601== and then give GDB the following command
+==27601==   target remote | /snap/valgrind/142/usr/libexec/valgrind/../../bin/vgdb --pid=27601
+==27601== --pid is optional if only one valgrind process is running
+==27601== 
+--27601-- REDIR: 0x4022e20 (ld-linux-x86-64.so.2:strlen) redirected to 0x581eb5de (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--27601-- REDIR: 0x4022bf0 (ld-linux-x86-64.so.2:index) redirected to 0x581eb5f8 (vgPlain_amd64_linux_REDIR_FOR_index)
+--27601-- Reading syms from /snap/valgrind/142/usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--27601-- Reading syms from /snap/valgrind/142/usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+==27601== WARNING: new redirection conflicts with existing -- ignoring it
+--27601--     old: 0x04022e20 (strlen              ) R-> (0000.0) 0x581eb5de vgPlain_amd64_linux_REDIR_FOR_strlen
+--27601--     new: 0x04022e20 (strlen              ) R-> (2007.0) 0x04a3efb0 strlen
+--27601-- REDIR: 0x401f600 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4a401e0 (strcmp)
+--27601-- REDIR: 0x4023380 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4a44400 (mempcpy)
+--27601-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
+--27601--   Considering /usr/lib/debug/.build-id/18/78e6b475720c7c51969e69ab2d276fae6d1dee.debug ..
+--27601--   .. build-id is valid
+==27601== WARNING: new redirection conflicts with existing -- ignoring it
+--27601--     old: 0x04cec250 (memalign            ) R-> (1011.0) 0x04a3e1f5 memalign
+--27601--     new: 0x04cec250 (memalign            ) R-> (1017.0) 0x04a3e1cb aligned_alloc
+==27601== WARNING: new redirection conflicts with existing -- ignoring it
+--27601--     old: 0x04cec250 (memalign            ) R-> (1011.0) 0x04a3e1f5 memalign
+--27601--     new: 0x04cec250 (memalign            ) R-> (1017.0) 0x04a3e1a1 aligned_alloc
+==27601== WARNING: new redirection conflicts with existing -- ignoring it
+--27601--     old: 0x04cec250 (memalign            ) R-> (1011.0) 0x04a3e1f5 memalign
+--27601--     new: 0x04cec250 (memalign            ) R-> (1017.0) 0x04a3e1cb aligned_alloc
+==27601== WARNING: new redirection conflicts with existing -- ignoring it
+--27601--     old: 0x04cec250 (memalign            ) R-> (1011.0) 0x04a3e1f5 memalign
+--27601--     new: 0x04cec250 (memalign            ) R-> (1017.0) 0x04a3e1a1 aligned_alloc
+--27601-- REDIR: 0x4cf1480 (libc.so.6:memmove) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+==27601== Preferring higher priority redirection:
+--27601--     old: 0x04ddc6e0 (__memcpy_avx_unalign) R-> (2018.0) 0x04a41720 __memcpy_avx_unaligned_erms
+--27601--     new: 0x04ddc6e0 (__memcpy_avx_unalign) R-> (2018.1) 0x04a433e0 memmove
+--27601-- REDIR: 0x4cf0780 (libc.so.6:strncpy) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf17b0 (libc.so.6:strcasecmp) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf00a0 (libc.so.6:strcat) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf07e0 (libc.so.6:rindex) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf2c50 (libc.so.6:rawmemchr) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4d0dce0 (libc.so.6:wmemchr) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4d0d820 (libc.so.6:wcscmp) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf15e0 (libc.so.6:mempcpy) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf1410 (libc.so.6:bcmp) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf0710 (libc.so.6:strncmp) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf0150 (libc.so.6:strcmp) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf1540 (libc.so.6:memset) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4d0d7e0 (libc.so.6:wcschr) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf0670 (libc.so.6:strnlen) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf0230 (libc.so.6:strcspn) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf1800 (libc.so.6:strncasecmp) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf01d0 (libc.so.6:strcpy) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf1950 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4d0ef50 (libc.so.6:wcsnlen) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4d0d860 (libc.so.6:wcscpy) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf0820 (libc.so.6:strpbrk) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf0100 (libc.so.6:index) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf0630 (libc.so.6:strlen) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf9bb0 (libc.so.6:memrchr) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf1850 (libc.so.6:strcasecmp_l) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf13d0 (libc.so.6:memchr) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4d0d930 (libc.so.6:wcslen) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf0ae0 (libc.so.6:strspn) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf1750 (libc.so.6:stpncpy) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf16f0 (libc.so.6:stpcpy) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf2c90 (libc.so.6:strchrnul) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4cf18a0 (libc.so.6:strncasecmp_l) redirected to 0x48306e8 (_vgnU_ifunc_wrapper)
+--27601-- REDIR: 0x4dd9500 (libc.so.6:__strrchr_avx2) redirected to 0x4a3e930 (rindex)
+--27601-- REDIR: 0x4ceb0e0 (libc.so.6:malloc) redirected to 0x4a39053 (malloc)
+--27601-- REDIR: 0x4dd5530 (libc.so.6:__memchr_avx2) redirected to 0x4a40280 (memchr)
+--27601-- REDIR: 0x4ddc6e0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4a433e0 (memmove)
+--27625-- REDIR: 0x4dd96d0 (libc.so.6:__strlen_avx2) redirected to 0x4a3eef0 (strlen)
+--27625-- REDIR: 0x4ddb900 (libc.so.6:__stpcpy_avx2) redirected to 0x4a42b80 (stpcpy)
+--27625-- REDIR: 0x4ddc6c0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4a44040 (mempcpy)
+--27625-- REDIR: 0x4ceb6d0 (libc.so.6:free) redirected to 0x4a3b941 (free)
+--27625-- REDIR: 0x4dd9310 (libc.so.6:__strchrnul_avx2) redirected to 0x4a43f30 (strchrnul)
+==27625== 
+==27625== HEAP SUMMARY:
+==27625==     in use at exit: 129 bytes in 2 blocks
+==27625==   total heap usage: 5 allocs, 3 frees, 2,649 bytes allocated
+==27625== 
+==27625== Searching for pointers to 2 not-freed blocks
+==27625== Checked 69,568 bytes
+==27625== 
+==27625== 9 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==27625==    at 0x4A390C5: malloc (vg_replace_malloc.c:393)
+==27625==    by 0x109AD3: _bin (in /home/vagrant/simple_shell/hsh)
+==27625==    by 0x109D77: main (in /home/vagrant/simple_shell/hsh)
+==27625== 
+==27625== 120 bytes in 1 blocks are still reachable in loss record 2 of 2
+==27625==    at 0x4A390C5: malloc (vg_replace_malloc.c:393)
+==27625==    by 0x4CD4543: getdelim (iogetdelim.c:62)
+==27625==    by 0x109A10: error (in /home/vagrant/simple_shell/hsh)
+==27625==    by 0x109C3F: main (in /home/vagrant/simple_shell/hsh)
+==27625== 
+==27625== LEAK SUMMARY:
+==27625==    definitely lost: 9 bytes in 1 blocks
+==27625==    indirectly lost: 0 bytes in 0 blocks
+==27625==      possibly lost: 0 bytes in 0 blocks
+==27625==    still reachable: 120 bytes in 1 blocks
+==27625==         suppressed: 0 bytes in 0 blocks
+==27625== 
+==27625== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+--27601-- REDIR: 0x4ceb6d0 (libc.so.6:free) redirected to 0x4a3b941 (free)
+==27601== 
+==27601== HEAP SUMMARY:
+==27601==     in use at exit: 120 bytes in 1 blocks
+==27601==   total heap usage: 2 allocs, 1 frees, 1,144 bytes allocated
+==27601== 
+==27601== Searching for pointers to 1 not-freed blocks
+==27601== Checked 69,568 bytes
+==27601== 
+==27601== 120 bytes in 1 blocks are still reachable in loss record 1 of 1
+==27601==    at 0x4A390C5: malloc (vg_replace_malloc.c:393)
+==27601==    by 0x4CD4543: getdelim (iogetdelim.c:62)
+==27601==    by 0x109A10: error (in /home/vagrant/simple_shell/hsh)
+==27601==    by 0x109C3F: main (in /home/vagrant/simple_shell/hsh)
+==27601== 
+==27601== LEAK SUMMARY:
+==27601==    definitely lost: 0 bytes in 0 blocks
+==27601==    indirectly lost: 0 bytes in 0 blocks
+==27601==      possibly lost: 0 bytes in 0 blocks
+==27601==    still reachable: 120 bytes in 1 blocks
+==27601==         suppressed: 0 bytes in 0 blocks
+==27601== 
+==27601== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

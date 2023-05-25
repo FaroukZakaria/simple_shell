@@ -7,6 +7,8 @@
  */
 int main(__attribute__((unused)) int argc, char **argv)
 {
+	int status = 0;
+
 	line = NULL;
 	size = 0;
 	while (1)
@@ -20,7 +22,10 @@ int main(__attribute__((unused)) int argc, char **argv)
 		av[0] = line;
 		token();
 		if (_strcmp(av[0], "exit") == 0)
+		{
+			status = __exit();
 			break;
+		}
 		short_cd(av[0]);
 		_pid_get(av);
 		ch_var(av);
@@ -35,7 +40,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 				(execve(_bin(av[0]), av, environ));
 			}
 			perror(av[0]);
-			break;
+			status = 2;
 		}
 		else
 		{
@@ -43,5 +48,5 @@ int main(__attribute__((unused)) int argc, char **argv)
 		}
 	}
 	free(line);
-	return (0);
+	return (status);
 }

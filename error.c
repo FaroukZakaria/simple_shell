@@ -41,6 +41,6 @@ void non_int(char **vect)
 		write(1, ": 1: ", _strlen(": 1: "));
 		write(1, av[0], _strlen(av[0]));
 		write(1, ": not found\n", _strlen(": not found\n"));
-		exit(-1);
+		exit(2);
 	}
 }

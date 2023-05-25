@@ -31,7 +31,6 @@ int main(__attribute__((unused)) int argc, char **argv)
 		short_cd(av[0]);
 		_pid_get(av);
 		ch_var(av);
-		printf("argv here: '%s'\n", argv[0]);
 		if ((non_int(argv, av, l))== 2)
 			break;
 		pid = fork();
@@ -52,7 +51,8 @@ int main(__attribute__((unused)) int argc, char **argv)
 		{
 			waitpid(pid, &status, 0);
 		}
-		free(l);
+		if (_strcmp(av[0], l) != 0)
+			free(l);
 	}
 	free(line);
 	return (status);

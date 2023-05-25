@@ -41,6 +41,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 			}
 			perror(av[0]);
 			status = 2;
+			break;
 		}
 		else
 		{

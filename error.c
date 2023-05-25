@@ -35,10 +35,25 @@ void signal_c_action(int sign)
  */
 int non_int(char **vect, char **str, char *bin)
 {
+	int stat;
+
 	if ((!(isatty(STDIN_FILENO))) && (access(bin, X_OK) == -1))
 	{
 		if (_strcmp(str[0], "exit") == 0)
-			exit(__exit());
+		{
+			stat = __exit();
+			if (stat == -1)
+			{
+				write(1, (vect[0]), _strlen(vect[0]));
+				write(1, ": 1: ", _strlen(": 1: "));
+				write(1, str[0], _strlen(str[0]));
+				write(1, ": Illegal number: ", _strlen(": Illegal number: "));
+				write(1, av[1], _strlen(av[1]));
+				fflush(stdout);
+				write(1, "\n", 1);
+				return (2);
+			}
+		}
 		write(1, (vect[0]), _strlen(vect[0]));
 		write(1, ": 1: ", _strlen(": 1: "));
 		write(1, str[0], _strlen(str[0]));

@@ -22,12 +22,19 @@ int main(__attribute__((unused)) int argc, char **argv)
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
 		token();
+		l = _bin(av[0]);
 		if (_strcmp(av[0], "exit") == 0)
 		{
+			if ((__exit() == -1) && (!(isatty(STDIN_FILENO))))
+			{
+				status = non_int(argv, av, l);
+				free(line);
+				free(l);
+				exit(status);
+			}
 			status = __exit();
-			break;
+			exit(status);
 		}
-		l = _bin(av[0]);
 		short_cd(av[0]);
 		_pid_get(av);
 		ch_var(av);

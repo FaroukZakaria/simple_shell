@@ -55,7 +55,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 			perror(av[0]);
 			status = 2;
 			free(l);
-			break;
+			exit(2);
 		}
 		else
 			waitpid(pid, &status, 0);

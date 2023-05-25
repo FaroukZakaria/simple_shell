@@ -31,8 +31,13 @@ int main(__attribute__((unused)) int argc, char **argv)
 		short_cd(av[0]);
 		_pid_get(av);
 		ch_var(av);
-		if ((non_int(argv, av, l))== 2)
-			break;
+		if ((non_int(argv, av, l)) == 2)
+		{
+			status = 2;
+			free(line);
+			free(l);
+			return (status);
+		}
 		pid = fork();
 		if (pid == -1)
 			perror("fork");

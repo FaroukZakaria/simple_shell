@@ -12,3 +12,12 @@ int error(void)
 	}
 	return (0);
 }
+/**
+ * signal_c_action - s
+ * Return: s
+ */
+void signal_c_action(int sign)
+{
+	if (sign == SIGINT)
+		flag = 1;
+}

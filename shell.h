@@ -9,9 +9,11 @@
 #include <sys/wait.h>
 #include <errno.h>
 #include <dirent.h>
+#include <signal.h>
 
 char *get_input(void);
 size_t _strlen(const char *str);
+void signal_c_action(int sign);
 void token(void);
 int error(void);
 int esc(void);
@@ -45,6 +47,7 @@ char **path(void);
 char **envp();
 char **split_input(char *input);
 int execute_command(char **arguments);
+int flag;
 char *av[3];
 char *line;
 size_t size;

@@ -13,6 +13,9 @@ int main(void)
 			write(1, ("#cisfun$ "), 9);
 		if (error() == -1)
 			break;
+		signal(SIGINT, signal_c_action);
+		if (flag == 1)
+			break;
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;

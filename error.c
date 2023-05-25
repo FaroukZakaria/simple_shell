@@ -7,7 +7,8 @@ int error(void)
 {
 	if (getline(&line, &size, stdin) == -1)
 	{
-		printf("\n");
+		fflush(stdout);
+		write(1, "\n", 1);
 		return (-1);
 	}
 	return (0);

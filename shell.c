@@ -8,6 +8,7 @@
 int main(__attribute__((unused)) int argc, char **argv)
 {
 	int status = 0;
+	char *l;
 
 	line = NULL;
 	size = 0;
@@ -26,10 +27,13 @@ int main(__attribute__((unused)) int argc, char **argv)
 			status = __exit();
 			break;
 		}
+		l = _bin(av[0]);
 		short_cd(av[0]);
 		_pid_get(av);
 		ch_var(av);
-		non_int(argv);
+		printf("argv here: '%s'\n", argv[0]);
+		if ((non_int(argv, av, l))== 2)
+			break;
 		pid = fork();
 		if (pid == -1)
 			perror("fork");
@@ -37,16 +41,18 @@ int main(__attribute__((unused)) int argc, char **argv)
 		{
 			if (_strcmp(av[0], "cd") != 0)
 			{
-				(execve(_bin(av[0]), av, environ));
+				(execve(l, av, environ));
 			}
 			perror(av[0]);
 			status = 2;
+			free(l);
 			break;
 		}
 		else
 		{
 			waitpid(pid, &status, 0);
 		}
+		free(l);
 	}
 	free(line);
 	return (status);

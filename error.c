@@ -31,16 +31,17 @@ void signal_c_action(int sign)
  * @vect: s
  * Return: s
  */
-void non_int(char **vect)
+int non_int(char **vect, char **str, char *bin)
 {
-	if ((!(isatty(STDIN_FILENO))) && (access(_bin(av[0]), X_OK) == -1))
+	if ((!(isatty(STDIN_FILENO))) && (access(bin, X_OK) == -1))
 	{
-		if (_strcmp(av[0], "exit") == 0)
+		if (_strcmp(str[0], "exit") == 0)
 			exit(__exit());
 		write(1, (vect[0]), _strlen(vect[0]));
 		write(1, ": 1: ", _strlen(": 1: "));
-		write(1, av[0], _strlen(av[0]));
+		write(1, str[0], _strlen(str[0]));
 		write(1, ": not found\n", _strlen(": not found\n"));
-		exit(2);
+		return (2);
 	}
+	return (0);
 }

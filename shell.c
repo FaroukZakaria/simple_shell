@@ -36,7 +36,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 			status = 2;
 			free(line);
 			free(l);
-			return (status);
+			exit(status);
 		}
 		pid = fork();
 		if (pid == -1)
@@ -44,18 +44,14 @@ int main(__attribute__((unused)) int argc, char **argv)
 		else if (pid == 0)
 		{
 			if (_strcmp(av[0], "cd") != 0)
-			{
 				(execve(l, av, environ));
-			}
 			perror(av[0]);
 			status = 2;
 			free(l);
 			break;
 		}
 		else
-		{
 			waitpid(pid, &status, 0);
-		}
 		if (_strcmp(av[0], l) != 0)
 			free(l);
 	}

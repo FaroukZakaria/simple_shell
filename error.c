@@ -29,6 +29,8 @@ void signal_c_action(int sign)
 /**
  * non_int - non interactive mode error
  * @vect: s
+ * @str: s
+ * @bin: s
  * Return: s
  */
 int non_int(char **vect, char **str, char *bin)

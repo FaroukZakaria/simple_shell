@@ -19,6 +19,8 @@ int error(void);
 int esc(void);
 void short_cd(char *a);
 void last_line(void);
+char *trim(char *str);
+void non_int(char **vect);
 char *_strdup(const char *str);
 void *_memcpy(void *dest, const void *src, size_t n);
 void _strcat(char *dest, const char *src);

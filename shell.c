@@ -3,20 +3,22 @@
  * main - displays prompts and handles errors
  * Return: 0
  */
-int main(void)
+int main(__attribute__((unused)) int argc, char **argv)
 {
-	line = NULL;
 	size = 0;
 	while (1)
 	{
+		line = NULL;
 		if (isatty(STDIN_FILENO))
 			write(1, ("#cisfun$ "), 9);
 		if (error() == -1)
 			break;
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
-		av[0] = line;
+		line = trim(line);
+		av[0] = trim(line);
 		token();
+		non_int(argv);
 		if (_strcmp(av[0], "exit") == 0)
 			break;
 		short_cd(av[0]);
@@ -39,6 +41,5 @@ int main(void)
 			waitpid(pid, &status, 0);
 		}
 	}
-	free(line);
 	return (0);
 }

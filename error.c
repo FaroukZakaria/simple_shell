@@ -5,9 +5,9 @@
  */
 int error(void)
 {
-	if (getline(&line, &size, stdin) == -1)
+	if ((getline(&line, &size, stdin) == -1))
 	{
-		if (isatty(STDIN_FILENO))
+		if (isatty(STDIN_FILENO) && line != NULL)
 		{
 			fflush(stdout);
 			write(1, "\n", 1);

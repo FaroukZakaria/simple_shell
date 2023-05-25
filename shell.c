@@ -1,9 +1,11 @@
 #include "shell.h"
 /**
  * main - displays prompts and handles errors
+ * @argc: s
+ * @argv: s
  * Return: 0
  */
-int main(void)
+int main(__attribute__((unused)) int argc, char **argv)
 {
 	line = NULL;
 	size = 0;
@@ -22,6 +24,7 @@ int main(void)
 		short_cd(av[0]);
 		_pid_get(av);
 		ch_var(av);
+		non_int(argv);
 		pid = fork();
 		if (pid == -1)
 			perror("fork");

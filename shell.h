@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <sys/wait.h>
 #include <errno.h>
 #include <dirent.h>
@@ -26,6 +28,7 @@ void _strcpy(char *dest, const char *src);
 int _strcmp(const char *s1, const char *s2);
 char *_strchr(char *str, int n);
 char *_strtok(char *str, const char *delim);
+void non_int(char **vect);
 extern char **environ;
 int _atoi(char *str);
 char *_btoi(int value);

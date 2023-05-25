@@ -41,7 +41,6 @@ int main(void)
 		else
 			waitpid(pid, &status, 0);
 	}
-	free(av[0]);
 	free(line);
 	return (0);
 }

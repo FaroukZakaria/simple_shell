@@ -33,6 +33,8 @@ int main(__attribute__((unused)) int argc, char **argv)
 				exit(status);
 			}
 			status = __exit();
+			free(line);
+			free(l);
 			exit(status);
 		}
 		short_cd(av[0]);

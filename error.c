@@ -7,8 +7,11 @@ int error(void)
 {
 	if (getline(&line, &size, stdin) == -1)
 	{
-		fflush(stdout);
-		write(1, "\n", 1);
+		if (isatty(STDIN_FILENO))
+		{
+			fflush(stdout);
+			write(1, "\n", 1);
+		}
 		return (-1);
 	}
 	return (0);

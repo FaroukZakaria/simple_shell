@@ -14,6 +14,7 @@ int error(void)
 }
 /**
  * signal_c_action - s
+ * @sign: s
  * Return: s
  */
 void signal_c_action(int sign)

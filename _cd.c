@@ -23,3 +23,16 @@ char *_cd(void)
 	}
 	return ("/home");
 }
+/**
+ * short_cd - s
+ * @a: s
+ * Return: s
+ */
+void short_cd(char *a)
+{
+	if (_strcmp(a, "cd") == 0)
+	{
+		if (opendir(_cd()) != 0)
+			chdir(_cd());
+	}
+}

@@ -13,20 +13,13 @@ int main(void)
 			write(1, ("#cisfun$ "), 9);
 		if (error() == -1)
 			break;
-		signal(SIGINT, signal_c_action);
-		if (flag == 1)
-			break;
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
 		av[0] = line;
 		token();
 		if (_strcmp(av[0], "exit") == 0)
 			break;
-		if (_strcmp(av[0], "cd") == 0)
-		{
-			if (opendir(_cd()) != 0)
-				chdir(_cd());
-		}
+		short_cd(av[0]);
 		_pid_get(av);
 		ch_var(av);
 		pid = fork();
@@ -39,11 +32,12 @@ int main(void)
 				(execve(_bin(av[0]), av, environ));
 			}
 			perror(av[0]);
-			free(_bin(av[0]));
 			break;
 		}
 		else
+		{
 			waitpid(pid, &status, 0);
+		}
 	}
 	free(line);
 	return (0);

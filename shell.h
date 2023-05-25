@@ -17,6 +17,7 @@ void signal_c_action(int sign);
 void token(void);
 int error(void);
 int esc(void);
+void short_cd(char *a);
 void last_line(void);
 char *_strdup(const char *str);
 void *_memcpy(void *dest, const void *src, size_t n);

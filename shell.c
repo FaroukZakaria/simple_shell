@@ -39,7 +39,8 @@ int main(void)
 				(execve(_bin(av[0]), av, environ));
 			}
 			perror(av[0]);
-			exit(1);
+			free(_bin(av[0]));
+			break;
 		}
 		else
 			waitpid(pid, &status, 0);

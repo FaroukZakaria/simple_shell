@@ -49,7 +49,6 @@ int non_int(char **vect, char **str, char *bin)
 				write(1, str[0], _strlen(str[0]));
 				write(1, ": Illegal number: ", _strlen(": Illegal number: "));
 				write(1, av[1], _strlen(av[1]));
-				fflush(stdout);
 				write(1, "\n", 1);
 				return (2);
 			}

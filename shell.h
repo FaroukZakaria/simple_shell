@@ -26,6 +26,7 @@ char *_strtok(char *str, const char *delim);
 extern char **environ;
 int _atoi(char *str);
 char *_btoi(int value);
+void do_free(char **str);
 char **com_out(char **str);
 char *last_return(int val);
 int hash_q(char **str, int val);

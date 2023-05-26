@@ -37,7 +37,7 @@ int non_int(char **vect, char **str, char *bin)
 {
 	int stat;
 
-	if ((!(isatty(STDIN_FILENO))) && (access(bin, X_OK) == -1))
+	if ((!(isatty(STDIN_FILENO))) && (access(bin, X_OK) == -1) && (access(str[0], X_OK) == -1))
 	{
 		if (_strcmp(str[0], "exit") == 0)
 		{

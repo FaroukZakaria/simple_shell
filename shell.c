@@ -54,6 +54,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 		{
 			if (_strcmp(av[0], "cd") != 0)
 				(execve(l, av, environ));
+			execve(av[0], av, environ);
 			perror(av[0]);
 			status = 2;
 			free(l);

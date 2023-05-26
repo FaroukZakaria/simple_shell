@@ -29,6 +29,7 @@ int _strcmp(const char *s1, const char *s2);
 char *_strchr(char *str, int n);
 char *_strtok(char *str, const char *delim);
 int _is_digit(char *str);
+void short_checks(char *l, char **av, int status, char **argv, char *line);
 int non_int(char **vect, char **str, char *bin);
 extern char **environ;
 int _atoi(char *str);

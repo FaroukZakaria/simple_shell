@@ -23,30 +23,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 		av[0] = line;
 		token();
 		l = _bin(av[0]);
-		if (_strcmp(av[0], "exit") == 0)
-		{
-			if ((__exit() == -1) && (!(isatty(STDIN_FILENO))))
-			{
-				status = non_int(argv, av, l);
-				free(line);
-				free(l);
-				exit(status);
-			}
-			status = __exit();
-			free(line);
-			free(l);
-			exit(status);
-		}
-		short_cd(av[0]);
-		_pid_get(av);
-		ch_var(av);
-		if ((non_int(argv, av, l)) == 2)
-		{
-			status = 2;
-			free(line);
-			free(l);
-			exit(status);
-		}
+		short_checks(l, av, status, argv, line);
 		pid = fork();
 		if (pid == -1)
 			perror("fork");

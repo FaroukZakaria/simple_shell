@@ -17,9 +17,14 @@ int main(__attribute__((unused)) int argc, char **argv)
 		if (isatty(STDIN_FILENO))
 			write(1, ("#cisfun$ "), 9);
 		if (error() == -1)
-			break;
+		{
+			exit(0);
+		}
+		line = trim(line);
 		if (line[_strlen(line) - 1] == '\n')
 			line[_strlen(line) - 1] = '\0';
+		if (line[0] == '\0')
+			continue;
 		av[0] = line;
 		token();
 		l = _bin(av[0]);
@@ -54,6 +59,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 		{
 			if (_strcmp(av[0], "cd") != 0)
 				(execve(l, av, environ));
+			execve(av[0], av, environ);
 			perror(av[0]);
 			status = 2;
 			free(l);
